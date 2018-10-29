@@ -1,0 +1,35 @@
+<form class="form-inline addItem">
+  <input class="form-control mr-sm-2" type="text" placeholder="Nombre" #addNombre>
+  <input class="form-control mr-sm-2" type="number" placeholder="Stock" #addStock>
+  <input class="form-control mr-sm-2" type="number" placeholder="Precio" #addPrecio>
+  <input class="form-control mr-sm-2" type="number" placeholder="Cantidad Por Caja" #addCantidadPorCaja>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="agregar(addNombre.value, addStock.value, addPrecio.value, addCantidadPorCaja.value)">Agregar</button>
+</form>
+<table class="table">
+  <thead>
+    <th>id</th>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th>Precio</th>
+    <th>Cantidad por Caja</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data" (dblclick)="CambiarModificacion(item)">
+      <ng-container *ngIf="item.id != modificando.id">
+        <td>{{item.id}}</td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.cantidad}}</td>
+        <td>{{item.precio}}$</td>
+        <td>{{item.cantidadPorCaja}}</td>
+      </ng-container>
+      <ng-container *ngIf="item.id == modificando.id">
+        <td>{{item.id}}</td>
+        <td><input type="text" class="input-group-addon" value="{{item.nombre}}" [(ngModel)]="item.nombre"></td>
+        <td><input type="number" class="input-group-addon" value="{{item.cantidad}}" [(ngModel)]="item.cantidad"></td>
+        <td><input type="number" class="input-group-addon" value="{{item.precio}}" [(ngModel)]="item.precio"></td>
+        <td><input type="number" class="input-group-addon" value="{{item.cantidadPorCaja}}" [(ngModel)]="item.cantidadPorCaja"></td>
+        <td><button type="button" name="button" class="btn btn-primary" (click)="modificar(item)">Ok</button></td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>

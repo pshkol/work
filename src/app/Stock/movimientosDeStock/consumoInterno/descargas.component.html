@@ -1,0 +1,21 @@
+<button type="button" class="btn btn-primary">Crear</button>
+<button type="button" class="btn btn-danger">Anular</button>
+
+<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{search}}
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <button type="button" class="dropdown-item" *ngFor="let item of cargas" (click)="changeSearchTitle(item.fecha, item.nombres)">
+      <div>
+        <span class="hidden">{{item.id}}</span>
+        <span class="fecha">{{item.fecha}}</span>
+        <span class="nombres">{{item.nombres}}</span>
+      </div>
+    </button>
+  </div>
+</div>
+
+<table class="table" *ngIf="id != ''">
+<!-- Создать таблицу которая отображает выбранную каргу + имеет кнопку которая может добавить новый продукт -->
+</table>

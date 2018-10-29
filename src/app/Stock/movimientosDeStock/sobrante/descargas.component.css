@@ -1,0 +1,11 @@
+.fecha {
+  float: left;
+}
+
+.nombres {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}

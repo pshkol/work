@@ -1,0 +1,51 @@
+form {
+  float: right;
+}
+
+ul {
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+li {
+ list-style: none;
+}
+
+h1 {
+	text-align: center;
+	background: grey;
+	font-size: 25px;
+}
+
+.carga {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid grey;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	width: 300px;
+	margin: 20px;
+}
+
+.inf {
+	padding: 10px;
+}
+
+.filtros-wrap {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.filtros-wrap>div:first-child {
+	margin-right: 50px;
+}
+
+.filtros button {
+	margin-right: 10px;
+}
+
+.inf button {
+	margin-top: 10px;
+}

@@ -1,0 +1,55 @@
+<div class="filtros-wrap">
+	<div class="btn btn-info">Filtros</div>
+	<div class="filtros">
+		<button class="btn btn-light" (click)="filter(e, 'liquidadas')" #e>Liquidadas</button>
+		<button class="btn btn-light" (click)="filter(d, 'no-liquidadas')" #d>No Liquidadas</button>
+	</div>
+</div>
+<ul>
+	<li class="carga" *ngFor="let item of cargas; let i = index">
+		<div class="main">
+			<div class="inf">
+				Nombres: {{item.nombres}}<br/>
+				Fecha: {{item.fecha}}<br/>
+				Cantidad de cajas: {{item.cajas}}<br/>
+				Cantidad de plata: {{item.plata}}<br/>
+				Entregado(cajas): <span *ngIf="item.liquidada">250</span><span *ngIf="!item.liquidada">-</span><br/>
+				Entregado(plata): <span *ngIf="item.liquidada">80000</span><span *ngIf="!item.liquidada">-</span><br/>
+				<button class="btn btn-primary" [routerLink]="['/liquidacion', item.id]">Liquidacion</button>
+			</div>
+			<!-- <div class="dir">
+				<table class="table">
+					<thead>
+						<th>Direccion</th>
+						<th>Plata</th>
+						<th>Estado</th>
+						<th>Pedido</th>
+					</thead>
+					<tbody>
+						<tr *ngFor="let inf of item.carga; let j = index">
+							<td class="direccion">{{inf.direccion}}</td>
+							<td class="plata">{{inf.plata}}</td>
+							<td class="entregado">
+								<select (change)="cambiarPendiente(c)" class="custom-select" #c>
+									<option value="true" [selected]="inf.entregado">Entregado</option>
+									<option value="false" [selected]="!inf.entregado">No Entregado</option>
+								</select>
+							</td>
+							<input type="hidden" value="{{i}}" class="indexC">
+							<input type="hidden" value="{{j}}" class="indexP">
+							<td>
+								<ul class="detalle" data-display="false">
+									<li *ngFor="let ped of inf.pedido" class="pedidos">
+										<p class="nombre">{{ped.nombre}}</p>
+										<p class="cantidad">{{ped.cantidad}}</p>
+									</li>
+								</ul>
+							</td>
+							<td><button class="btn btn-outline-success" (click)="mostrarDetalle(e)" #e>Mostrar</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div> -->
+		</div>
+	</li>
+</ul>

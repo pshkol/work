@@ -1,0 +1,22 @@
+<form>
+  <div class="form-group">
+    <label for="deposito">Deposito:</label>
+    <select class="form-control" id="deposito">
+      <option value="1">CASA CENTRAL</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="movimiento">Movimiento</label>
+    <select class="form-control" id="movimiento" (click)="ev($event.target.value)">
+      <option value="1">Ultimo movimiento</option>
+      <option value="2">Cargas</option>
+      <option value="3">Descargas</option>
+      <option value="4">Ingreso de Mercaderia</option>
+      <option value="5">Faltante</option>
+      <option value="6">Sobrante</option>
+      <option value="7">Recuento de Stock</option>
+      <option value="8">Consumo Interno</option>
+    </select>
+  </div>
+</form>
+<router-outlet></router-outlet>

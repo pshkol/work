@@ -1,0 +1,33 @@
+<form class="form-inline addItem">
+  <input class="form-control mr-sm-2" type="text" placeholder="Razon Social" #rs>
+  <input class="form-control mr-sm-2" type="number" placeholder="CUIT" #cuit>
+  <input class="form-control mr-sm-2" type="text" placeholder="Direccion" #direccion>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="agregar(rs.value, cuit.value, direccion.value)">Agregar</button>
+</form>
+<table class="table">
+  <thead>
+    <th>id</th>
+    <th>Direccion</th>
+    <th>Razon social</th>
+    <th>CUIT</th>
+    <th>Acciones</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of clientes" (dblclick)="cambiarModification(item)">
+      <td>{{item.id}}</td>
+      <ng-container *ngIf="item.id != modificando.id">
+        <td>{{item.direccion}}</td>
+        <td>{{item.rs}}</td>
+        <td>{{item.cuit}}</td>
+      </ng-container>
+      <ng-container *ngIf="item.id == modificando.id">
+        <td><input type="text" name="direccion" value="{{item.direccion}}" [(ngModel)]="item.direccion"></td>
+        <td><input type="text" name="rs" value="{{item.rs}}" [(ngModel)]="item.rs"></td>
+        <td><input type="number" name="cuit" value="{{item.cuit}}" [(ngModel)]="item.cuit"></td>
+        <td><button type="button" name="button" class="btn btn-primary" (click)="modificar(item)">Ok</button></td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>
+ <!-- "
+  -->

@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-primary">Crear</button>
+<button type="button" class="btn btn-danger">Anular</button>
+
+<form class="form-inline" method="post">
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{search}}
+  </button>
+  <div class="dropdown-menu">
+    <button class="dropdown-item" type="button" (click)="modifySeachStr('Chofer')">Chofer</button>
+    <button class="dropdown-item" type="button" (click)="modifySeachStr('Ayudante')">Ayudante</button>
+    <button class="dropdown-item" type="button" (click)="modifySeachStr('№')">Numero de Carga</button>
+  </div>
+</div>
+  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Buscar">
+  </div>
+</form>
+<div class="filtros-wrap">
+	<div class="btn btn-info">Filtros</div>
+	<div class="filtros">
+		<button class="btn btn-light" (click)="filter(e, 'liquidadas')" #e>Liquidadas</button>
+		<button class="btn btn-light" (click)="filter(d, 'no-liquidadas')" #d>No Liquidadas</button>
+	</div>
+</div>
+<ul>
+  <li class="carga" *ngFor="let item of cargas; let i = index">
+		<div class="main">
+			<div class="inf">
+				Nombres: {{item.nombres}}<br/>
+				Fecha: {{item.fecha}}<br/>
+				Cantidad de cajas: {{item.cajas}}<br/>
+				Cantidad de plata: {{item.plata}}<br/>
+				Entregado(cajas): <span *ngIf="item.liquidada">250</span><span *ngIf="!item.liquidada">-</span><br/>
+				Entregado(plata): <span *ngIf="item.liquidada">80000</span><span *ngIf="!item.liquidada">-</span><br/>
+				<button class="btn btn-primary" [routerLink]="['/liquidacion', item.id]">Liquidacion</button>
+			</div>
+    </div>
+	</li>
+</ul>

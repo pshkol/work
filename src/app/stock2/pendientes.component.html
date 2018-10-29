@@ -1,0 +1,40 @@
+<div class="crearCarga input-group row">
+	<input type="text" placeholder="Nombre de Carga" class="crearCargaInput form-control" #nombre>
+	<input type="text" placeholder="Nombres" class="crearCargaInput form-control" #nombresCond>
+	<input type="text" placeholder="Fecha de Entrega" class="crearCargaInput form-control" #fecha>
+	<button class="btn btn-outline-success crearCargaBtn" (click)="crearCarga(nombre.value, nombresCond.value, fecha.value)">Crear carga</button>
+</div>
+<div class="totales">
+	Pedidos: {{total.pedidos}}<br/>
+	Plata: {{total.plata}}<br/>
+	Cajas: {{total.cajas}}
+</div>
+<div class="row pedidos">
+	<ng-container *ngFor="let item of pendientes">
+		<div class="pedidoWrap">
+			<div class="pedido" (click)="cambiarDetalle(e)" data-detalle=false #e>
+				<p class="direccion">{{item.direccion}}</p>
+				<p class="cajas">{{item.cajas}} cajas</p>
+				<p class="plata">{{item.plata}}$</p>
+		 	</div>
+			<button class="btn btn-outline-success" (click)="agregarCarga(item)" *ngIf="item.add">+</button>
+			<button class="btn btn-outline-danger" (click)="quitarCarga(item)" *ngIf="!item.add">-</button>
+		</div>
+		<table class="pedidoDetalle table">
+			<thead>
+				<th>Nombre</th>
+				<th>Cantidad</th>
+				<th>Precio por unidad</th>
+				<th>Precio Total</th>
+			</thead>
+			<tbody>
+				<tr *ngFor="let i of item.pedido">
+					<td>{{i.nombre}}</td>
+					<td>{{i.cantidad}}</td>
+					<td>{{i.precio}}$</td>
+					<td>{{i.cantidadPorCaja * i.cantidad * i.precio}}$</td>
+				</tr>
+			</tbody>
+		</table>
+	</ng-container>
+</div>

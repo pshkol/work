@@ -1,0 +1,69 @@
+.crearCarga {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	width: 100%;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.totales {
+	margin-bottom: 20px;
+}
+
+.pedidos {
+	display: flex;
+	flex-direction: column;
+}
+
+.pedido {
+	border: 1px solid grey;
+	border-radius: 5px;
+	box-sizing: border-box;
+	height: 50px;
+	padding: 10px;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 91%;
+}
+
+.pedido p {
+	font-size: 1.2em;
+	margin: 0;
+}
+
+.crearCargaInput {
+	margin-right: 20px;
+}
+
+.container {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
+.pedidoDetalle {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+.pedidoWrap button {
+	width: 4%;
+	height: 50px;
+	margin-left: 1%;
+}
+
+.pedidoWrap {
+	display: flex;
+	margin: 0 2%;
+}

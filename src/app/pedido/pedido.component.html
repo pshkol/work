@@ -1,0 +1,19 @@
+<div class="crearCarga input-group row">
+<input type="text" placeholder="Direccion" class="form-control" #direccion>
+	<input type="text" placeholder="Comentario" class="form-control" #comentario>
+	<button class="btn btn-outline-success crearCargaBtn" (click)="crearPedido(comentario.value, direccion.value)">Crear pedido</button>
+</div>
+<table class="table">
+	<thead>
+		<th>Nombre</th>
+		<th>Cantidad</th>
+		<th>Precio</th>
+	</thead>
+	<tbody>
+		<tr *ngFor="let item of stock">
+			<td class="nombre">{{item.nombre}}</td>
+			<td><input type="number" value="0"  class="cantidad"></td>
+			<td><input type="number" value={{item.precio}} class="precios"></td>
+		</tr>
+	</tbody>
+</table>
